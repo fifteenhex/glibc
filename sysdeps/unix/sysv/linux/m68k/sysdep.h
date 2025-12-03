@@ -293,6 +293,12 @@ SYSCALL_ERROR_LABEL:							      \
 #undef HAVE_INTERNAL_BRK_ADDR_SYMBOL
 #define HAVE_INTERNAL_BRK_ADDR_SYMBOL 1
 
+#define VDSO_NAME "LINUX_5.10"
+#define VDSO_HASH 182947696
+
+/* List of system calls which are supported as vsyscalls.  */
+#define HAVE_GET_THREAD_AREA_VSYSCALL "__vdso_get_thread_area"
+
 #endif /* not __ASSEMBLER__ */
 
 /* M68K needs system-supplied DSO to access TLS helpers

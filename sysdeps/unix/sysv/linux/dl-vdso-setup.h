@@ -53,6 +53,9 @@ setup_vdso_pointers (void)
 #ifdef HAVE_GETRANDOM_VSYSCALL
   GLRO(dl_vdso_getrandom) = dl_vdso_vsym (HAVE_GETRANDOM_VSYSCALL);
 #endif
+#ifdef HAVE_GET_THREAD_AREA_VSYSCALL
+  GLRO(dl_vdso_get_thread_area) = dl_vdso_vsym (HAVE_GET_THREAD_AREA_VSYSCALL);
+#endif
 }
 
 #endif

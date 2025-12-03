@@ -17,9 +17,14 @@
    <https://www.gnu.org/licenses/>.  */
 
 #include <sysdep.h>
+#include <sysdep-vdso.h>
 
 void *
 __m68k_read_tp (void)
 {
+  unsigned long (*vdso_get_thread_area) (void) = GLRO(dl_vdso_get_thread_area);
+  if (vdso_get_thread_area != NULL)
+    return (void*) INTERNAL_VSYSCALL_CALL (vdso_get_thread_area, 0);
+
   return (void*) INTERNAL_SYSCALL_CALL (get_thread_area);
 }

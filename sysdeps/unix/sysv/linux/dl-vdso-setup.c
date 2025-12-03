@@ -86,6 +86,11 @@ PROCINFO_CLASS int (*_dl_vdso_riscv_hwprobe)(void *,
                                              unsigned int) RELRO;
 # endif
 
+/* m68k */
+# ifdef HAVE_GET_THREAD_AREA_VSYSCALL
+PROCINFO_CLASS unsigned long (*_dl_vdso_get_thread_area)(void) RELRO;
+# endif
+
 #endif
 
 #undef RELRO
